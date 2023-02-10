@@ -1,9 +1,8 @@
-let formElement = document.querySelector('.profile_edit_form');
-let editButton = document.querySelector('.profile_edit_open');
-let nameInput = formElement.querySelector('.profile_edit_inputName');
-let captionInput = formElement.querySelector('.profile_edit_inputCaption');
-let popupForm = document.querySelector('.profile_edit_form');
-let closeButton = formElement.querySelector('.profile_edit_close');
+let editButton = document.querySelector('.profile__edit');
+let nameInput = document.querySelector('.edit-name');
+let captionInput = document.querySelector('.edit-caption');
+let popupForm = document.querySelector('.edit-form');
+let closeButton = document.querySelector('.edit-close');
 let profileName = document.querySelector('.profile__name');
 let profileCaption = document.querySelector('.profile__caption');
 
@@ -11,6 +10,7 @@ function handleOpenPopup(){
   nameInput.value = profileName.textContent;
   captionInput.value = profileCaption.textContent;
   popupForm.classList.add('popup_active');
+  console.log('ok');
 }
 
 function handleClosePopup(){
@@ -27,4 +27,4 @@ function handleFormSubmit (evt) {
 
 editButton.addEventListener('click', handleOpenPopup); 
 closeButton.addEventListener('click', handleClosePopup);
-formElement.addEventListener('submit', handleFormSubmit); 
+popupForm.addEventListener('submit', handleFormSubmit); 
