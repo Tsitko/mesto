@@ -16,56 +16,58 @@
         <img src="./images/image.jpg" alt="аватар" class="profile__image">
         <div class="profile__info">
           <div class='profile__name-container'>
-            <p class="profile__name">Жак-Ив Кусто</p>
-            <img src="./images/Edit Button.svg" alt="редактирование профиля" class="profile__edit" id="edit_profile">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__edit profile-edit_open" name="editProfile">
+              <img src="./images/Edit Button.svg" alt="редактирование профиля">
+            </button>
           </div>
           <p class="profile__caption">Исследователь океана</p>
         </div>
-        <div class="profile__add">
+        <button type="button" class="profile__add">
           <img src="./images/plus.svg" alt="добавить" class="profile__plus">
-        </div>
+        </button>
       </section>
       <section class="photo-grid">
-        <div class="photo-grid__element">
-          <img src="./images/kirill-pershin2.png" alt="церковь" class="photo-grid__image">
-          <div class="photo-grid__description">
-            <p class="photo-grid__caption">Карачаевск</p>
-            <div class="photo-grid__like"></div>
+        <div class="element">
+          <img src="./images/kirill-pershin2.png" alt="церковь">
+          <div class="element__description">
+            <h2 class="element__caption">Карачаевск</h2>
+            <button type="button" class="element__like"></button>
           </div>
         </div>
-        <div class="photo-grid__element">
-          <img src="./images/kirill-pershin1.png" alt="церковь" class="photo-grid__image">
-          <div class="photo-grid__description">
-            <p class="photo-grid__caption">Гора Эльбрус</p>
-            <div class="photo-grid__like"></div>
+        <div class="element">
+          <img src="./images/kirill-pershin1.png" alt="церковь">
+          <div class="element__description">
+            <h2 class="element__caption">Гора Эльбрус</h2>
+            <button type="button" class="element__like"></button>
           </div>
         </div>
-        <div class="photo-grid__element">
-          <img src="./images/kirill-pershin3.png" alt="церковь" class="photo-grid__image">
-          <div class="photo-grid__description">
-            <p class="photo-grid__caption">Домбай</p>
-            <div class="photo-grid__like"></div>
+        <div class="element">
+          <img src="./images/kirill-pershin3.png" alt="церковь">
+          <div class="element__description">
+            <h2 class="element__caption">Домбай</h2>
+            <button type="button" class="element__like"></button>
           </div>
         </div>
-        <div class="photo-grid__element">
-          <img src="./images/kirill-pershin1.png" alt="церковь" class="photo-grid__image">
-          <div class="photo-grid__description">
-            <p class="photo-grid__caption">Гора Эльбрус</p>
-            <div class="photo-grid__like"></div>
+        <div class="element">
+          <img src="./images/kirill-pershin1.png" alt="церковь">
+          <div class="element__description">
+            <h2 class="element__caption">Гора Эльбрус</h2>
+            <button type="button" class="element__like"></button>
           </div>
         </div>
-        <div class="photo-grid__element">
-          <img src="./images/kirill-pershin3.png" alt="церковь" class="photo-grid__image">
-          <div class="photo-grid__description">
-            <p class="photo-grid__caption">Домбай</p>
-            <div class="photo-grid__like"></div>
+        <div class="element">
+          <img src="./images/kirill-pershin3.png" alt="церковь">
+          <div class="element__description">
+            <h2 class="element__caption">Домбай</h2>
+            <button type="button" class="element__like"></button>
           </div>
         </div>
-        <div class="photo-grid__element">
-          <img src="./images/kirill-pershin2.png" alt="церковь" class="photo-grid__image">
-          <div class="photo-grid__description">
-            <p class="photo-grid__caption">Карачаевo&nbsp;-&nbsp;Черкессия </p>
-            <div class="photo-grid__like"></div>
+        <div class="element">
+          <img src="./images/kirill-pershin2.png" alt="церковь">
+          <div class="element__description">
+            <h2 class="element__caption">Карачаевo&nbsp;-&nbsp;Черкессия </h2>
+            <button type="button" class="element__like"></button>
           </div>
         </div>
       </section>
@@ -73,24 +75,23 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2023 Denis Tsitko</p>
     </footer>
-    <div class="popup" id="popup_profile">
+    <div class="popup profile-edit_form" name="popupProfile">
       <div class="popup__form-container">
-          <button class="popup__escape-button" type="button" id="edit_close"></button>
-          <form class="popup__form" id="profile_form" novalidate>
+          <button class="popup__escape-button profile-edit_close" type="button" name="editClose"></button>
+          <form class="popup__form" name="profileForm" novalidate>
               <h2 class="popup__form-title">Редактировать профиль</h2>
               <fieldset class="form">
                   <label class="form__input-label">
-                      <input type="text" class="form__input" placeholder="Ваше Имя" value="Жак-Ив Кусто" id="name">
+                      <input type="text" class="form__input profile-edit_input-name" placeholder="Ваше Имя" value="" name="profileName">
                   </label>
                   <label class="form__input-label">
-                      <input type="text" class="form__input" placeholder="Место работы" value="Исследователь океана"
-                             id="caption">
+                      <input type="text" class="form__input profile-edit_input-caption" placeholder="Место работы" value="" name="profileCaption">
                   </label>
               </fieldset>
-              <button class="popup__save-button" type="submit">Сохранить</button>
+              <button class="popup__save-button profile-edit_save" type="submit">Сохранить</button>
           </form>
       </div>
     </div>
-    <script src="./script/script.js"></script>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>

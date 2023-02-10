@@ -1,8 +1,8 @@
-.photo-grid__element{
+.element{
   display: flex;
   flex-direction: column;
   border-radius: 3%;
   overflow: hidden;
   height: 362px;
-  width: 282px;
+  max-width: 282px;
 }
