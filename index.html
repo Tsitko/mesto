@@ -17,7 +17,7 @@
         <div class="profile__info">
           <div class='profile__name-container'>
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button type="button" class="profile__edit profile-edit_open" name="editProfile">
+            <button type="button" class="profile__edit profile_edit_open" name="editProfile">
               <img src="./images/Edit Button.svg" alt="редактирование профиля">
             </button>
           </div>
@@ -75,20 +75,20 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2023 Denis Tsitko</p>
     </footer>
-    <div class="popup profile-edit_form" name="popupProfile">
+    <div class="popup profile_edit_form" name="popupProfile">
       <div class="popup__form-container">
-          <button class="popup__escape-button profile-edit_close" type="button" name="editClose"></button>
+          <button class="popup__escape-button profile_edit_close" type="button" name="editClose"></button>
           <form class="popup__form" name="profileForm" novalidate>
               <h2 class="popup__form-title">Редактировать профиль</h2>
               <fieldset class="form">
                   <label class="form__input-label">
-                      <input type="text" class="form__input profile-edit_input-name" placeholder="Ваше Имя" value="" name="profileName">
+                      <input type="text" class="form__input profile_edit_inputName" placeholder="Ваше Имя" value="" name="profileName">
                   </label>
                   <label class="form__input-label">
-                      <input type="text" class="form__input profile-edit_input-caption" placeholder="Место работы" value="" name="profileCaption">
+                      <input type="text" class="form__input profile_edit_inputCaption" placeholder="Место работы" value="" name="profileCaption">
                   </label>
               </fieldset>
-              <button class="popup__save-button profile-edit_save" type="submit">Сохранить</button>
+              <button class="popup__save-button profile_edit_save" type="submit">Сохранить</button>
           </form>
       </div>
     </div>

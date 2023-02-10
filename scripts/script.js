@@ -1,9 +1,9 @@
-let formElement = document.querySelector('.profile-edit_form');
-let editButton = document.querySelector('.profile-edit_open');
-let nameInput = formElement.querySelector('.profile-edit_input-name');
-let captionInput = formElement.querySelector('.profile-edit_input-caption');
-let popupForm = document.querySelector('.profile-edit_form');
-let closeButton = formElement.querySelector('.profile-edit_close');
+let formElement = document.querySelector('.profile_edit_form');
+let editButton = document.querySelector('.profile_edit_open');
+let nameInput = formElement.querySelector('.profile_edit_inputName');
+let captionInput = formElement.querySelector('.profile_edit_inputCaption');
+let popupForm = document.querySelector('.profile_edit_form');
+let closeButton = formElement.querySelector('.profile_edit_close');
 let profileName = document.querySelector('.profile__name');
 let profileCaption = document.querySelector('.profile__caption');
 
