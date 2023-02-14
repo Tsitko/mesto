@@ -1,4 +1,4 @@
-.popup__save-button {
+.form__save-button {
   font-family: inherit;
   font-style: normal;
   font-weight: 400;
@@ -15,14 +15,14 @@
   padding: 0;
 }
 
-.popup__save-button:hover {
+.form__save-button:hover {
   opacity: 0.7;
   cursor: pointer;
   transition: opacity 1s;
 }
 
 @media screen and (max-width: 700px) {
-  .popup__save-button {
+  .form__save-button {
     width: 100%;
     margin: 12px auto 0px auto;
     height: 46px;
