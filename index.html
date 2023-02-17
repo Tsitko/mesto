@@ -26,50 +26,7 @@
         </div>
         <button type="button" class="profile__add"></button>
       </section>
-      <section class="photo-grid">
-        <div class="element">
-          <img src="./images/kirill-pershin2.png" alt="церковь" />
-          <div class="element__description">
-            <h2 class="element__caption">Карачаевск</h2>
-            <button type="button" class="element__like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/kirill-pershin1.png" alt="гора эльбрус" />
-          <div class="element__description">
-            <h2 class="element__caption">Гора Эльбрус</h2>
-            <button type="button" class="element__like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/kirill-pershin3.png" alt="домбай" />
-          <div class="element__description">
-            <h2 class="element__caption">Домбай</h2>
-            <button type="button" class="element__like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/kirill-pershin1.png" alt="эльбрус" />
-          <div class="element__description">
-            <h2 class="element__caption">Гора Эльбрус</h2>
-            <button type="button" class="element__like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/kirill-pershin3.png" alt="домбай предгорье" />
-          <div class="element__description">
-            <h2 class="element__caption">Домбай</h2>
-            <button type="button" class="element__like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img src="./images/kirill-pershin2.png" alt="церковь в КЧР" />
-          <div class="element__description">
-            <h2 class="element__caption">Карачаевo&nbsp;-&nbsp;Черкессия</h2>
-            <button type="button" class="element__like"></button>
-          </div>
-        </div>
-      </section>
+      <section class="photo-grid"></section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2023 Denis Tsitko</p>
@@ -101,6 +58,63 @@
         </form>
       </div>
     </div>
+    <div class="popup element-popup">
+      <div class="element-popup__image-container">
+        <button
+        class="popup__escape-button"
+        type="button"
+        name="elementClose"
+      ></button>
+        <img
+          src="./images/kirill-pershin1.png"
+          alt=""
+          class="element-popup__image"
+        />
+        <p class="element-popup__caption">ddddddd</p>
+      </div>
+    </div>
+    <div class="popup popup-photo">
+      <div class="popup__form-container">
+        <button
+          class="popup__escape-button"
+          type="button"
+          name="editClose"
+        ></button>
+        <h2 class="popup__form-title">Новое место</h2>
+        <form class="form" name="photoElementForm" novalidate>
+          <input
+            type="text"
+            class="form__input form__input-photo-name"
+            placeholder="Название"
+            value=""
+            name="photoName"
+          />
+          <input
+            type="text"
+            class="form__input form__input-photo-link"
+            placeholder="Ссылка на фото"
+            value=""
+            name="photoLink"
+          />
+          <button class="form__save-button" type="submit">Создать</button>
+        </form>
+      </div>
+    </div>
+    <template id="photo-template">
+      <div class="element">
+        <button type="button" class="element__open">
+          <img src="" alt="" class="element__image" />
+        </button>
+        <button type="button" class="element__trash">
+          <img src="./images/urnСover.svg" alt="крушка урны" />
+          <img src="./images/urn.svg" alt="урна" />
+        </button>
+        <div class="element__description">
+          <h2 class="element__caption"></h2>
+          <button type="button" class="element__like"></button>
+        </div>
+      </div>
+    </template>
     <script async src="./scripts/script.js"></script>
   </body>
 </html>

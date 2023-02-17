@@ -13,10 +13,15 @@
 @import url("../blocks/profile/__add/profile__add.css");
 @import url("../blocks/photo-grid/photo-grid.css");
 @import url("../blocks/element/element.css");
+@import url("../blocks/element/__open/element__open.css");
+@import url("../blocks/element/__image/element__image.css");
+@import url("../blocks/element/__trash/element__trash.css");
 @import url("../blocks/element/__caption/element__caption.css");
 @import url("../blocks/element/__description/element__description.css");
 @import url("../blocks/element/__like/element__like.css");
 @import url("../blocks/element/__like/_active/element__like_active.css");
+@import url("../blocks/element-popup/__caption/elment-popup__caption.css");
+@import url("../blocks/element-popup/__image-container/element-popup__image-container.css");
 @import url("../blocks/footer/footer.css");
 @import url("../blocks/footer/__copyright/footer__copyright.css");
 @import url("../blocks/popup/popup.css");
