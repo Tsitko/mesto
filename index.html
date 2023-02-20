@@ -17,6 +17,7 @@
           <div class="profile__name-container">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button
+              aria-label="редактирование профиля"
               type="button"
               class="profile__edit"
               name="editProfile"
@@ -24,7 +25,11 @@
           </div>
           <p class="profile__caption">Исследователь океана</p>
         </div>
-        <button type="button" class="profile__add"></button>
+        <button
+          aria-label="добавление фото"
+          type="button"
+          class="profile__add"
+        ></button>
       </section>
       <section class="photo-grid"></section>
     </main>
@@ -34,6 +39,7 @@
     <div class="popup popup-profile">
       <div class="popup__form-container">
         <button
+          aria-label="закрыть редактирование профиля"
           class="popup__escape-button"
           type="button"
           name="editClose"
@@ -46,6 +52,7 @@
             placeholder="Ваше Имя"
             value=""
             name="profileName"
+            required
           />
           <input
             type="text"
@@ -53,6 +60,7 @@
             placeholder="Место работы"
             value=""
             name="profileCaption"
+            required
           />
           <button class="form__save-button" type="submit">Сохранить</button>
         </form>
@@ -61,21 +69,23 @@
     <div class="popup element-popup">
       <div class="element-popup__image-container">
         <button
-        class="popup__escape-button"
-        type="button"
-        name="elementClose"
-      ></button>
+          aria-label="закрыть добавление фото"
+          class="popup__escape-button"
+          type="button"
+          name="elementClose"
+        ></button>
         <img
           src="./images/kirill-pershin1.png"
           alt=""
           class="element-popup__image"
         />
-        <p class="element-popup__caption">ddddddd</p>
+        <p class="element-popup__caption"></p>
       </div>
     </div>
     <div class="popup popup-photo">
       <div class="popup__form-container">
         <button
+          aria-label="закрыть просмотр фото"
           class="popup__escape-button"
           type="button"
           name="editClose"
@@ -86,15 +96,15 @@
             type="text"
             class="form__input form__input-photo-name"
             placeholder="Название"
-            value=""
             name="photoName"
+            required
           />
           <input
-            type="text"
+            type="url"
             class="form__input form__input-photo-link"
             placeholder="Ссылка на фото"
-            value=""
             name="photoLink"
+            required
           />
           <button class="form__save-button" type="submit">Создать</button>
         </form>
@@ -102,12 +112,15 @@
     </div>
     <template id="photo-template">
       <div class="element">
-        <button type="button" class="element__open">
+        <button
+          aria-label="открыть просмотр фото"
+          type="button"
+          class="element__open"
+        >
           <img class="element__image" />
         </button>
         <button type="button" class="element__trash">
-          <img src="./images/urnСover.svg" alt="крушка урны" />
-          <img src="./images/urn.svg" alt="урна" />
+          <img src="./images/Trash.svg" alt="урна" />
         </button>
         <div class="element__description">
           <h2 class="element__caption"></h2>
@@ -115,6 +128,7 @@
         </div>
       </div>
     </template>
-    <script async src="./scripts/script.js"></script>
+    <script defer src="./scripts/contents.js"></script>
+    <script defer src="./scripts/script.js"></script>
   </body>
 </html>

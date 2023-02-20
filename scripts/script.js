@@ -1,36 +1,10 @@
 const editButton = document.querySelector(".profile__edit");
-const popupForm = document.querySelector(".popup-profile");
-const nameInput = popupForm.querySelector(".form__input-name");
-const captionInput = popupForm.querySelector(".form__input-caption");
-const closeFormButton = popupForm.querySelector(".popup__escape-button");
+const popupProfile = document.querySelector(".popup-profile");
+const nameInput = popupProfile.querySelector(".form__input-name");
+const captionInput = popupProfile.querySelector(".form__input-caption");
+const closeProfileButton = popupProfile.querySelector(".popup__escape-button");
 const profileName = document.querySelector(".profile__name");
 const profileCaption = document.querySelector(".profile__caption");
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
 const photoGrid = document.querySelector(".photo-grid");
 const addButton = document.querySelector(".profile__add");
 const popupPhotoElement = document.querySelector(".popup-photo");
@@ -48,13 +22,14 @@ const closeElementPopupButton = elementPopup.querySelector(
   ".popup__escape-button"
 );
 
-function addPhoto(element, atStart = true) {
+function createCard(elementData) {
   const photoTemplate = document.querySelector("#photo-template").content;
   const photoElement = photoTemplate.querySelector(".element").cloneNode(true);
-  photoElement.querySelector(".element__image").src = element.link;
-  photoElement.querySelector(".element__image").alt =
-    'фото под названием "' + element.name + '"';
-  photoElement.querySelector(".element__caption").textContent = element.name;
+  const elementImage = photoElement.querySelector(".element__image");
+  elementImage.src = elementData.link;
+  elementImage.alt = `фото под названием "${elementData.name}"`;
+  photoElement.querySelector(".element__caption").textContent =
+    elementData.name;
   photoElement
     .querySelector(".element__like")
     .addEventListener("click", (evt) =>
@@ -62,19 +37,25 @@ function addPhoto(element, atStart = true) {
     );
   photoElement
     .querySelector(".element__trash")
-    .addEventListener("click", (evt) =>
-      evt.target.closest(".element").remove()
-    );
+    .addEventListener("click", () => photoElement.remove());
   photoElement
     .querySelector(".element__open")
     .addEventListener("click", (evt) => {
-      elementPopup.classList.add("popup_opened");
-      elementPopup.querySelector(".element-popup__image").src = evt.target.src;
+      openPopup(elementPopup);
+      const elementPopupImage = elementPopup.querySelector(
+        ".element-popup__image"
+      );
+      elementPopupImage.src = evt.target.src;
+      elementPopupImage.alt = `фото под названием "${elementData.name}"`;
       elementPopup.querySelector(".element-popup__caption").textContent =
-        evt.target
-          .closest(".element")
-          .querySelector(".element__caption").textContent;
+        elementData.name;
     });
+  console.log(photoElement);
+  return photoElement;
+}
+
+function addPhoto(elementData, atStart = true) {
+  const photoElement = createCard(elementData);
   if (atStart) {
     photoGrid.prepend(photoElement);
   } else {
@@ -83,57 +64,64 @@ function addPhoto(element, atStart = true) {
 }
 
 function initPhotoGrid() {
-  initialCards.forEach((element) => {
-    addPhoto(element, false);
+  initialCards.forEach((elementData) => {
+    addPhoto(elementData, false);
   });
 }
 
-function openFormPopup() {
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
+}
+
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
+}
+
+function openProfilePopup() {
   nameInput.value = profileName.textContent;
   captionInput.value = profileCaption.textContent;
-  popupForm.classList.add("popup_opened");
+  openPopup(popupProfile);
 }
 
-function closeFormPopup() {
-  popupForm.classList.remove("popup_opened");
+function closeProfilePopup() {
+  closePopup(popupProfile);
 }
 
-function formSubmit(evt) {
+function profileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileCaption.textContent = captionInput.value;
-  closeFormPopup();
+  closeProfilePopup();
 }
 
 function openPhotoElementPopup() {
-  photoNameInput.value = "";
-  photoLinkInput.value = "";
-  popupPhotoElement.classList.add("popup_opened");
+  popupPhotoElement.querySelector(".form").reset();
+  openPopup(popupPhotoElement);
 }
 
 function closePhotoElementPopup() {
-  popupPhotoElement.classList.remove("popup_opened");
+  closePopup(popupPhotoElement);
 }
 
-function photoElementSubmit(evt) {
+function photoElementFormSubmit(evt) {
   evt.preventDefault();
-  const element = {
+  const elementData = {
     name: photoNameInput.value,
     link: photoLinkInput.value,
   };
-  addPhoto(element);
+  addPhoto(elementData);
   closePhotoElementPopup();
 }
 
 function closeElementPopup() {
-  elementPopup.classList.remove("popup_opened");
+  closePopup(elementPopup);
 }
 
 initPhotoGrid();
-editButton.addEventListener("click", openFormPopup);
-closeFormButton.addEventListener("click", closeFormPopup);
-popupForm.addEventListener("submit", formSubmit);
+editButton.addEventListener("click", openProfilePopup);
+closeProfileButton.addEventListener("click", closeProfilePopup);
+popupProfile.addEventListener("submit", profileFormSubmit);
 addButton.addEventListener("click", openPhotoElementPopup);
 closePhotoElementButton.addEventListener("click", closePhotoElementPopup);
-popupPhotoElement.addEventListener("submit", photoElementSubmit);
+popupPhotoElement.addEventListener("submit", photoElementFormSubmit);
 closeElementPopupButton.addEventListener("click", closeElementPopup);
