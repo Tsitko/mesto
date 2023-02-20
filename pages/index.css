@@ -22,6 +22,7 @@
 @import url("../blocks/element/__like/_active/element__like_active.css");
 @import url("../blocks/element-popup/__caption/elment-popup__caption.css");
 @import url("../blocks/element-popup/__image-container/element-popup__image-container.css");
+@import url("../blocks/element-popup/__image/element-popup__image.css");
 @import url("../blocks/footer/footer.css");
 @import url("../blocks/footer/__copyright/footer__copyright.css");
 @import url("../blocks/popup/popup.css");

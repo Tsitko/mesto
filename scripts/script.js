@@ -69,8 +69,11 @@ function addPhoto(element, atStart = true) {
     .querySelector(".element__open")
     .addEventListener("click", (evt) => {
       elementPopup.classList.add("popup_opened");
-      elementPopup.querySelector(".element-popup__image").src =
-        evt.target.src;
+      elementPopup.querySelector(".element-popup__image").src = evt.target.src;
+      elementPopup.querySelector(".element-popup__caption").textContent =
+        evt.target
+          .closest(".element")
+          .querySelector(".element__caption").textContent;
     });
   if (atStart) {
     photoGrid.prepend(photoElement);
