@@ -1,6 +1,7 @@
 .element__open{
   display: flex;
   background: none;
+  border: none;
   height: 100%;
   width: 100%;
   overflow: hidden;
