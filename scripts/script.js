@@ -50,7 +50,6 @@ function createCard(elementData) {
       elementPopup.querySelector(".element-popup__caption").textContent =
         elementData.name;
     });
-  console.log(photoElement);
   return photoElement;
 }
 
@@ -117,6 +116,30 @@ function closeElementPopup() {
   closePopup(elementPopup);
 }
 
+function closeOpenedPopup(){
+  if (popupProfile.classList.contains("popup_opened")) {
+    closeProfilePopup();
+  }
+  if (popupPhotoElement.classList.contains("popup_opened")) {
+    closePhotoElementPopup();
+  }
+  if (elementPopup.classList.contains("popup_opened")) {
+    closeElementPopup();
+  }
+}
+
+function closeOnOverlay(evt) {
+  if (evt.target.classList.contains("popup")) {
+    closeOpenedPopup();
+  }
+}
+
+function closeOnEsc(evt) {
+  if (evt.code === "Escape") {
+    closeOpenedPopup();
+  }
+}
+
 initPhotoGrid();
 editButton.addEventListener("click", openProfilePopup);
 closeProfileButton.addEventListener("click", closeProfilePopup);
@@ -125,3 +148,9 @@ addButton.addEventListener("click", openPhotoElementPopup);
 closePhotoElementButton.addEventListener("click", closePhotoElementPopup);
 popupPhotoElement.addEventListener("submit", photoElementFormSubmit);
 closeElementPopupButton.addEventListener("click", closeElementPopup);
+document.addEventListener("click", (evt) => {
+  closeOnOverlay(evt);
+});
+document.addEventListener("keydown", (evt) => {
+  closeOnEsc(evt);
+});

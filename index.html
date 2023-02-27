@@ -52,16 +52,22 @@
             placeholder="Ваше Имя"
             value=""
             name="profileName"
+            minlength="2"
+            maxlength="40"
             required
           />
+          <span class="form__validation-text"></span>
           <input
             type="text"
             class="form__input form__input-caption"
             placeholder="Место работы"
             value=""
             name="profileCaption"
+            minlength="2"
+            maxlength="200"
             required
           />
+          <span class="form__validation-text"></span>
           <button class="form__save-button" type="submit">Сохранить</button>
         </form>
       </div>
@@ -97,8 +103,11 @@
             class="form__input form__input-photo-name"
             placeholder="Название"
             name="photoName"
+            minlength="2"
+            maxlength="30"
             required
           />
+          <span class="form__validation-text"></span>
           <input
             type="url"
             class="form__input form__input-photo-link"
@@ -106,6 +115,7 @@
             name="photoLink"
             required
           />
+          <span class="form__validation-text"></span>
           <button class="form__save-button" type="submit">Создать</button>
         </form>
       </div>
@@ -129,6 +139,7 @@
       </div>
     </template>
     <script defer src="./scripts/contents.js"></script>
+    <script defer src="./scripts/validation.js"></script>
     <script defer src="./scripts/script.js"></script>
   </body>
 </html>
