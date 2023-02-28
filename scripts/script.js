@@ -70,9 +70,12 @@ function initPhotoGrid() {
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  addCloseEvents();
+  enableValidation();
 }
 
 function closePopup(popup) {
+  removeCloseEvents();
   popup.classList.remove("popup_opened");
 }
 
@@ -116,16 +119,9 @@ function closeElementPopup() {
   closePopup(elementPopup);
 }
 
-function closeOpenedPopup(){
-  if (popupProfile.classList.contains("popup_opened")) {
-    closeProfilePopup();
-  }
-  if (popupPhotoElement.classList.contains("popup_opened")) {
-    closePhotoElementPopup();
-  }
-  if (elementPopup.classList.contains("popup_opened")) {
-    closeElementPopup();
-  }
+function closeOpenedPopup() {
+  const popup = document.querySelector(".popup_opened");
+  closePopup(popup);
 }
 
 function closeOnOverlay(evt) {
@@ -140,17 +136,21 @@ function closeOnEsc(evt) {
   }
 }
 
+function addCloseEvents() {
+  document.addEventListener("click", closeOnOverlay);
+  document.addEventListener("keydown", closeOnEsc);
+}
+
+function removeCloseEvents() {
+  document.removeEventListener("click", closeOnOverlay);
+  document.removeEventListener("keydown", closeOnEsc);
+}
+
 initPhotoGrid();
 editButton.addEventListener("click", openProfilePopup);
 closeProfileButton.addEventListener("click", closeProfilePopup);
-popupProfile.addEventListener("submit", profileFormSubmit);
 addButton.addEventListener("click", openPhotoElementPopup);
 closePhotoElementButton.addEventListener("click", closePhotoElementPopup);
 popupPhotoElement.addEventListener("submit", photoElementFormSubmit);
+popupProfile.addEventListener("submit", profileFormSubmit);
 closeElementPopupButton.addEventListener("click", closeElementPopup);
-document.addEventListener("click", (evt) => {
-  closeOnOverlay(evt);
-});
-document.addEventListener("keydown", (evt) => {
-  closeOnEsc(evt);
-});

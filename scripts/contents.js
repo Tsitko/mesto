@@ -26,10 +26,10 @@ const initialCards = [
 ];
 
 const validationSettings = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
+    formSelector: '.form',
+    inputSelector: '.form__input',
     submitButtonSelector: '.form__save-button',
     inactiveButtonClass: 'form__save-button_disabled',
-    inputErrorClass: 'form__validation-text',
+    inputErrorClass: 'form__input_invalid',
     errorClass: 'form__validation-text_visible'
 }
