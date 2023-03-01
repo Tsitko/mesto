@@ -2,7 +2,6 @@ const editButton = document.querySelector(".profile__edit");
 const popupProfile = document.querySelector(".popup-profile");
 const nameInput = popupProfile.querySelector(".form__input-name");
 const captionInput = popupProfile.querySelector(".form__input-caption");
-const closeProfileButton = popupProfile.querySelector(".popup__escape-button");
 const profileName = document.querySelector(".profile__name");
 const profileCaption = document.querySelector(".profile__caption");
 const photoGrid = document.querySelector(".photo-grid");
@@ -14,13 +13,12 @@ const photoNameInput = popupPhotoElement.querySelector(
 const photoLinkInput = popupPhotoElement.querySelector(
   ".form__input-photo-link"
 );
-const closePhotoElementButton = popupPhotoElement.querySelector(
-  ".popup__escape-button"
-);
 const elementPopup = document.querySelector(".element-popup");
-const closeElementPopupButton = elementPopup.querySelector(
-  ".popup__escape-button"
+const elementPopupImage = elementPopup.querySelector(".element-popup__image");
+const elementPopupCaption = elementPopup.querySelector(
+  ".element-popup__caption"
 );
+const closeButtons = document.querySelectorAll(".popup__escape-button");
 
 function createCard(elementData) {
   const photoTemplate = document.querySelector("#photo-template").content;
@@ -42,13 +40,9 @@ function createCard(elementData) {
     .querySelector(".element__open")
     .addEventListener("click", (evt) => {
       openPopup(elementPopup);
-      const elementPopupImage = elementPopup.querySelector(
-        ".element-popup__image"
-      );
       elementPopupImage.src = evt.target.src;
       elementPopupImage.alt = `фото под названием "${elementData.name}"`;
-      elementPopup.querySelector(".element-popup__caption").textContent =
-        elementData.name;
+      elementPopupCaption.textContent = elementData.name;
     });
   return photoElement;
 }
@@ -71,7 +65,6 @@ function initPhotoGrid() {
 function openPopup(popup) {
   popup.classList.add("popup_opened");
   addCloseEvents();
-  enableValidation();
 }
 
 function closePopup(popup) {
@@ -89,7 +82,7 @@ function closeProfilePopup() {
   closePopup(popupProfile);
 }
 
-function profileFormSubmit(evt) {
+function submitProfileForm(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileCaption.textContent = captionInput.value;
@@ -97,7 +90,6 @@ function profileFormSubmit(evt) {
 }
 
 function openPhotoElementPopup() {
-  popupPhotoElement.querySelector(".form").reset();
   openPopup(popupPhotoElement);
 }
 
@@ -105,13 +97,14 @@ function closePhotoElementPopup() {
   closePopup(popupPhotoElement);
 }
 
-function photoElementFormSubmit(evt) {
+function submitPhotoElementForm(evt) {
   evt.preventDefault();
   const elementData = {
     name: photoNameInput.value,
     link: photoLinkInput.value,
   };
   addPhoto(elementData);
+  evt.target.reset();
   closePhotoElementPopup();
 }
 
@@ -147,10 +140,12 @@ function removeCloseEvents() {
 }
 
 initPhotoGrid();
+enableValidation(validationSettings);
 editButton.addEventListener("click", openProfilePopup);
-closeProfileButton.addEventListener("click", closeProfilePopup);
 addButton.addEventListener("click", openPhotoElementPopup);
-closePhotoElementButton.addEventListener("click", closePhotoElementPopup);
-popupPhotoElement.addEventListener("submit", photoElementFormSubmit);
-popupProfile.addEventListener("submit", profileFormSubmit);
-closeElementPopupButton.addEventListener("click", closeElementPopup);
+popupPhotoElement.addEventListener("submit", submitPhotoElementForm);
+popupProfile.addEventListener("submit", submitProfileForm);
+closeButtons.forEach((button) => {
+  const popup = button.closest(".popup");
+  button.addEventListener("click", () => closePopup(popup));
+});
