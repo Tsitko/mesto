@@ -1,3 +1,7 @@
+
+import {initialCards, validationSettings} from './contents.js';
+import {FormValidator} from './FormValidator.js';
+
 const editButton = document.querySelector(".profile__edit");
 const popupProfile = document.querySelector(".popup-profile");
 const nameInput = popupProfile.querySelector(".form__input-name");
@@ -7,6 +11,9 @@ const profileCaption = document.querySelector(".profile__caption");
 const photoGrid = document.querySelector(".photo-grid");
 const addButton = document.querySelector(".profile__add");
 const popupPhotoElement = document.querySelector(".popup-photo");
+const profileValidator = new FormValidator(popupProfile, validationSettings);
+const photoElementValidator = new FormValidator(popupPhotoElement, validationSettings);
+
 const photoNameInput = popupPhotoElement.querySelector(
   ".form__input-photo-name"
 );
@@ -140,7 +147,8 @@ function removeCloseEvents() {
 }
 
 initPhotoGrid();
-enableValidation(validationSettings);
+profileValidator.enableValidaton();
+photoElementValidator.enableValidaton();
 editButton.addEventListener("click", openProfilePopup);
 addButton.addEventListener("click", openPhotoElementPopup);
 popupPhotoElement.addEventListener("submit", submitPhotoElementForm);
