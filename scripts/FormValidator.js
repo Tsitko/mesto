@@ -10,7 +10,6 @@ export class FormValidator {
       this._form.querySelectorAll(this._inputSelector)
     );
     this._buttonElement = this._form.querySelector(this._button);
-    console.log(this._button);
   }
 
   _setEventListeners() {
@@ -78,5 +77,3 @@ export class FormValidator {
     this._setEventListeners();
   }
 }
-
-

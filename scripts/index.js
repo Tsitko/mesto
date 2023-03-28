@@ -1,6 +1,6 @@
-
-import {initialCards, validationSettings} from './contents.js';
-import {FormValidator} from './FormValidator.js';
+import { initialCards, validationSettings } from "./contents.js";
+import { FormValidator } from "./FormValidator.js";
+import { Card } from "./Card.js";
 
 const editButton = document.querySelector(".profile__edit");
 const popupProfile = document.querySelector(".popup-profile");
@@ -12,7 +12,10 @@ const photoGrid = document.querySelector(".photo-grid");
 const addButton = document.querySelector(".profile__add");
 const popupPhotoElement = document.querySelector(".popup-photo");
 const profileValidator = new FormValidator(popupProfile, validationSettings);
-const photoElementValidator = new FormValidator(popupPhotoElement, validationSettings);
+const photoElementValidator = new FormValidator(
+  popupPhotoElement,
+  validationSettings
+);
 
 const photoNameInput = popupPhotoElement.querySelector(
   ".form__input-photo-name"
@@ -25,37 +28,22 @@ const elementPopupImage = elementPopup.querySelector(".element-popup__image");
 const elementPopupCaption = elementPopup.querySelector(
   ".element-popup__caption"
 );
+const elementPopupData = {
+  elementPopup: elementPopup,
+  elementPopupImage: elementPopupImage,
+  elementPopupCaption: elementPopupCaption,
+};
 const closeButtons = document.querySelectorAll(".popup__escape-button");
 
-function createCard(elementData) {
-  const photoTemplate = document.querySelector("#photo-template").content;
-  const photoElement = photoTemplate.querySelector(".element").cloneNode(true);
-  const elementImage = photoElement.querySelector(".element__image");
-  elementImage.src = elementData.link;
-  elementImage.alt = `фото под названием "${elementData.name}"`;
-  photoElement.querySelector(".element__caption").textContent =
-    elementData.name;
-  photoElement
-    .querySelector(".element__like")
-    .addEventListener("click", (evt) =>
-      evt.target.classList.toggle("element__like_active")
-    );
-  photoElement
-    .querySelector(".element__trash")
-    .addEventListener("click", () => photoElement.remove());
-  photoElement
-    .querySelector(".element__open")
-    .addEventListener("click", (evt) => {
-      openPopup(elementPopup);
-      elementPopupImage.src = evt.target.src;
-      elementPopupImage.alt = `фото под названием "${elementData.name}"`;
-      elementPopupCaption.textContent = elementData.name;
-    });
-  return photoElement;
-}
-
 function addPhoto(elementData, atStart = true) {
-  const photoElement = createCard(elementData);
+  const crd = new Card(
+    elementData,
+    "#photo-template",
+    openPopup,
+    closePopup,
+    elementPopupData
+  );
+  const photoElement = crd.generateCard();
   if (atStart) {
     photoGrid.prepend(photoElement);
   } else {
