@@ -99,6 +99,7 @@ function submitPhotoElementForm(evt) {
   };
   addPhoto(elementData);
   evt.target.reset();
+  photoElementValidator.toggleButtonState();
   closePhotoElementPopup();
 }
 
