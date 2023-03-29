@@ -1,10 +1,9 @@
 export class Card {
-  constructor(data, selector, openCard, deleteCard, popup) {
+  constructor(data, selector, openCard, popup) {
     this._title = data.name;
     this._image = data.link;
     this._selector = selector;
     this._openCard = openCard;
-    this._deleteCard = deleteCard;
     this._elementPopup = popup;
   }
   _getElement() {

@@ -36,14 +36,13 @@ const elementPopupData = {
 const closeButtons = document.querySelectorAll(".popup__escape-button");
 
 function addPhoto(elementData, atStart = true) {
-  const crd = new Card(
+  const card = new Card(
     elementData,
     "#photo-template",
     openPopup,
-    closePopup,
     elementPopupData
   );
-  const photoElement = crd.generateCard();
+  const photoElement = card.generateCard();
   if (atStart) {
     photoGrid.prepend(photoElement);
   } else {
