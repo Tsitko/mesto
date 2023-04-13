@@ -1,26 +1,31 @@
 {
   "name": "mesto",
   "version": "0.0.1",
-  "description": "Проект сделан с целью изучения современных подходов к верстке и использованию Java Script в веб разработке.  \r Проект можно увидеть по ссылке: https://tsitko.github.io/mesto/index.html  \r Проект сверстан для следующих разрешений экрана:",
+  "description": "Проект сделан с целью изучения современных подходов к верстке и использованию Java Script в веб разработке.",
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && webpack --mode production",
     "dev": "webpack serve"
   },
   "author": "Denis Tsitko",
-  "license": "ISC",
+  "license": "",
   "devDependencies": {
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
+    "autoprefixer": "^10.4.14",
     "babel-loader": "^9.1.2",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
+    "cssnano": "^6.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "install": "^0.13.0",
     "mini-css-extract-plugin": "^2.7.5",
-    "webpack": "^5.78.0",
+    "postcss": "^8.4.21",
+    "postcss-loader": "^7.2.4",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.2"
   },
   "dependencies": {
-    "core-js": "^3.30.0"
+    "webpack": "^5.79.0"
   }
 }

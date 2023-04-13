@@ -4,16 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Место</title>
-    <link rel="icon" href="./images/favicon.ico" />
-    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="icon" href="<%=require('./images/favicon.ico')%>" />
   </head>
   <body class="page">
     <header class="header">
-      <img src="./images/logo.svg" alt="логотип место" class="header__logo" />
+      <img src="<%=require('./images/logo.svg')%>" alt="логотип место" class="header__logo" />
     </header>
     <main>
       <section class="profile">
-        <img src="./images/image.jpg" alt="аватар" class="profile__image" />
+        <img src="<%=require('./images/image.jpg')%>" alt="аватар" class="profile__image" />
         <div class="profile__info">
           <div class="profile__name-container">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -84,7 +83,7 @@
           name="elementClose"
         ></button>
         <img
-          src="./images/kirill-pershin1.png"
+          src="<%=require('./images/kirill-pershin1.png')%>"
           alt=""
           class="element-popup__image"
         />
@@ -135,7 +134,7 @@
           <img class="element__image" />
         </button>
         <button type="button" class="element__trash">
-          <img src="./images/Trash.svg" alt="урна" />
+          <img src="<%=require('./images/Trash.svg')%>" alt="урна" />
         </button>
         <div class="element__description">
           <h2 class="element__caption"></h2>
