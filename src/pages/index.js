@@ -5,11 +5,13 @@ import "./index.css";
 import {
   editButton,
   popupProfile,
-  photoGrid,
   addButton,
   popupPhotoElement,
   popupImage,
-  element,
+  popupProfileSelector,
+  popupPhotoElementSelector,
+  popupImageSelector,
+  cardContainerSelector,
 } from "../utils/contents.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage";
@@ -19,41 +21,36 @@ import UserInfo from "../components/UserInfo.js";
 const cardsList = new Section(
   {
     renderer: (data) => {
-      const card = addPhoto(data);
-      cardsList.addItem(card);
+      const card = createCard(data);
+      cardsList.addItems(card);
     },
   },
-  element
+  cardContainerSelector
 );
 
-cardsList.renderItems(initialCards.reverse());
+cardsList.renderItems(initialCards);
 
 const profileValidator = new FormValidator(popupProfile, validationSettings);
 const photoElementValidator = new FormValidator(
   popupPhotoElement,
   validationSettings
 );
-const imagePopup = new PopupWithImage(popupImage);
+const imagePopup = new PopupWithImage(popupImageSelector);
 imagePopup.setEventListeners();
 
 function openCard(title, src) {
   imagePopup.open(title, src);
 }
 
-function addPhoto(elementData, atStart = true) {
+function createCard (elementData){
   const card = new Card(elementData, "#photo-template", openCard, popupImage);
-  const photoElement = card.generateCard();
-  if (atStart) {
-    photoGrid.prepend(photoElement);
-  } else {
-    photoGrid.append(photoElement);
-  }
+  return card.generateCard();
 }
 
-const popupAdd = new PopupWithForm(popupPhotoElement, submitPhotoElementForm);
+const popupAdd = new PopupWithForm(popupPhotoElementSelector, submitPhotoElementForm);
 popupAdd.setEventListeners();
 
-const popupEdit = new PopupWithForm(popupProfile, submitProfileForm);
+const popupEdit = new PopupWithForm(popupProfileSelector, submitProfileForm);
 popupEdit.setEventListeners();
 
 const userInfo = new UserInfo({
@@ -72,7 +69,7 @@ function submitPhotoElementForm(val) {
     name: val.photoName,
     link: val.photoLink,
   };
-  addPhoto(elementData);
+  cardsList.addItem(createCard(elementData));
   photoElementValidator.toggleButtonState();
   popupAdd.close();
 }
