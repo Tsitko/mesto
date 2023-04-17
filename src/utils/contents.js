@@ -33,3 +33,13 @@ export const validationSettings = {
   inputErrorClass: "form__input_invalid",
   errorClass: "form__validation-text_visible",
 };
+
+export const editButton = document.querySelector(".profile__edit");
+export const popupProfile = document.querySelector(".popup-profile");
+export const nameInput = popupProfile.querySelector(".form__input-name");
+export const captionInput = popupProfile.querySelector(".form__input-caption");
+export const profileName = document.querySelector(".profile__name");
+export const profileCaption = document.querySelector(".profile__caption");
+export const photoGrid = document.querySelector(".photo-grid");
+export const addButton = document.querySelector(".profile__add");
+export const popupPhotoElement = document.querySelector(".popup-photo");

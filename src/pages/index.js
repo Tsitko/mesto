@@ -1,17 +1,19 @@
 import { initialCards, validationSettings } from "../utils/contents.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { Card } from "../components/Card.js";
-import './index.css';
+import "./index.css";
+import {
+  editButton,
+  popupProfile,
+  nameInput,
+  captionInput,
+  profileName,
+  profileCaption,
+  photoGrid,
+  addButton,
+  popupPhotoElement,
+} from "../utils/contents.js";
 
-const editButton = document.querySelector(".profile__edit");
-const popupProfile = document.querySelector(".popup-profile");
-const nameInput = popupProfile.querySelector(".form__input-name");
-const captionInput = popupProfile.querySelector(".form__input-caption");
-const profileName = document.querySelector(".profile__name");
-const profileCaption = document.querySelector(".profile__caption");
-const photoGrid = document.querySelector(".photo-grid");
-const addButton = document.querySelector(".profile__add");
-const popupPhotoElement = document.querySelector(".popup-photo");
 const profileValidator = new FormValidator(popupProfile, validationSettings);
 const photoElementValidator = new FormValidator(
   popupPhotoElement,
