@@ -36,11 +36,7 @@ export class Card {
     this._element
       .querySelector(".element__open")
       .addEventListener("click", (evt) => {
-        console.log(this._elementPopup.elementPopup);
-        this._openCard(this._elementPopup.elementPopup);
-        this._elementPopup.elementPopupImage.src = evt.target.src;
-        this._elementPopup.elementPopupImage.alt = `фото под названием "${this._title}"`;
-        this._elementPopup.elementPopupCaption.textContent = this._title;
+        this._openCard(this._title, this._image);
       });
   }
 }

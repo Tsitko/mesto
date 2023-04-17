@@ -41,5 +41,7 @@ export const captionInput = popupProfile.querySelector(".form__input-caption");
 export const profileName = document.querySelector(".profile__name");
 export const profileCaption = document.querySelector(".profile__caption");
 export const photoGrid = document.querySelector(".photo-grid");
+export const element = document.querySelector(".element");
 export const addButton = document.querySelector(".profile__add");
 export const popupPhotoElement = document.querySelector(".popup-photo");
+export const popupImage = document.querySelector(".element-popup");
