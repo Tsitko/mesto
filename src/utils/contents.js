@@ -48,3 +48,7 @@ export const popupImage = document.querySelector(".element-popup");
 export const popupPhotoElementSelector = ".popup-photo";
 export const popupImageSelector = ".element-popup";
 export const popupProfileSelector = ".popup-profile";
+export const popupConfirm = '.popup_confirm';
+export const popupAvatar = '.popup_avatar';
+export const avatarButton = document.querySelector('.profile__image');
+export const avatarForm = document.querySelector('.popup_avatar');

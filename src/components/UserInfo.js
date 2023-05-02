@@ -11,16 +11,16 @@ export default class UserInfo {
 
   getUserInfo() {
     const userInfo = {
-      profileName: this._name.textContent,
-      profileCaption: this._job.textContent,
+      name: this._name.textContent,
+      about: this._job.textContent,
       profileImage: this._avatar.src,
     };
     return userInfo;
   }
 
   setUserInfo(data) {
-    if (data.profileName) this._name.textContent = data.profileName;
-    if (data.profileCaption) this._job.textContent = data.profileCaption;
+    if (data.name) this._name.textContent = data.name;
+    if (data.about) this._job.textContent = data.about;
     this.setAvatar(data);
   }
 
