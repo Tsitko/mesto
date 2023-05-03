@@ -6,6 +6,12 @@
   object-position: 100%;
 }
 
+.profile__image:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 1s;
+}
+
 @media screen and (max-width: 1000px) {
   .profile__image {
     margin: 0 auto 0 auto;
