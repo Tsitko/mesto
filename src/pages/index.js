@@ -161,7 +161,6 @@ profileValidator.enableValidaton();
 photoElementValidator.enableValidaton();
 editButton.addEventListener("click", () => {
   const info = userInfo.getUserInfo();
-  console.log(info);
   popupEdit.setInputValue(info);
   popupEdit.open();
   profileValidator.hideAllErrors();
