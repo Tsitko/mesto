@@ -56,24 +56,21 @@ export class FormValidator {
     this._errorElement.textContent = "";
   }
 
-  _validateInput() {
+  _hasInvalidInput() {
     return this._inputList.some((input) => !input.validity.valid);
   }
 
   toggleButtonState() {
-    if (this._validateInput()) {
+    if (this._hasInvalidInput()) {
       this._buttonElement.classList.add(this._inactiveBtn);
-      this._buttonElement.setAttribute("disabled", true);
+      this._buttonElement.disabled = true;
     } else {
       this._buttonElement.classList.remove(this._inactiveBtn);
-      this._buttonElement.removeAttribute("disabled", true);
+      this._buttonElement.disabled = false;
     }
   }
 
-  enableValidaton() {
-    this._form.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-    });
+  enableValidation() {
     this._setEventListeners();
   }
 }

@@ -1,6 +1,14 @@
 .element-popup__image-container {
+  max-width: 75vw;
+  max-height: 75vh;
   display: flex;
   flex-direction: column;
-  max-width: 75vw;
+  margin: 90px auto 90px auto;
   position: relative;
+}
+
+@media screen and (max-width: 1023px) {
+  .element-popup__image-container {
+    width: 75vw;
+  }
 }

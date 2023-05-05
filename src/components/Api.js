@@ -30,16 +30,17 @@ class Api {
       headers: this._headers,
       body: JSON.stringify({
         name: userInfo.name,
-        about: userInfo.about
+        about: userInfo.about,
       }),
     }).then(this._handleResponse);
   }
 
   addNewCard(data) {
+    const cardJson = { name: data.photoName, link: data.link };
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
-      body: JSON.stringify(data),
+      body: JSON.stringify(cardJson),
     }).then(this._handleResponse);
   }
 
